@@ -28,7 +28,7 @@
         paper-card {
             width: 100%;
             background: white;
-            padding: 12px 28px;
+            padding: 32px 28px 12px 28px;
             margin-bottom: 32px;
             margin: 8px;
         }
@@ -56,10 +56,17 @@
         }
         
         #event_title {
+            margin: 4px 0;
             color: rgba(0, 0, 0, 0.7);
             font-size: 22px;
             font-weight: 400;
-            margin-bottom: 0;
+            vertical-align: middle;
+            display: inline-block;
+        }
+        
+        .title_icon {
+            color: rgba(0, 0, 0, 0.7);
+            margin-right: 6px;
         }
         
         #event_speaker {
@@ -74,35 +81,81 @@
         
         #event_desc_block {
             display: inline-block;
-            margin-right: 12px;
+            margin: auto 12px 4px auto;
             color: rgba(0, 0, 0, 0.7);
             font-size: 14px;
             font-weight: 300;
         }
         
         #toChange {
-            padding-top: 12px;
-            font-size: 14px;
-            font-weight: 400;
-            color: rgba(0, 0, 0, 0.7);
+            padding: 12px 16px;
+            font-size: 16px;
+            font-weight: 500;
+            color: rgba(0, 0, 0, 0.8);
+        }
+        
+        #toChange p {
+            vertical-align: middle;
         }
         
         #event_group {
             display: flex;
         }
+
+        #event_info_color{
+            padding: 12px 6px;
+            display: inline-block;
+            
+        }
+        #event_info_color div{
+            display: inline-block;
+        }
+        #event_info_color span{
+            vertical-align: middle;
+            font-size: 1.1em;
+            margin-right: 12px;
+            color: rgba(0, 0, 0, 0.8);
+        }
+        .bullet{
+            vertical-align: middle;
+            height: 12px;
+            width: 12px;
+            background: red;
+            display: inline-block;
+            border-radius: 50%;
+            margin-right: 6px;
+        }
+
+        .cyan{
+            background: #2196f3;
+        }
+        .blue{
+            background: #5C6BC0;
+        }
+        .red{
+            background: #e91e63;
+        }
+        .grey{
+            background: #bdbdbd;
+        }
+
         
         @media screen and (max-width: 840px) {
-            .general,
+            /*            .general,
             .talk,
             .other,
             .codelabs {
                 border-top: 0;
+            }*/
+            #event_info_color{
+                padding: 12px 16px;
             }
             #event_group {
                 display: block;
             }
             paper-card {
                 margin: 0;
+                padding: 24px 28px 12px 28px;
             }
             #event_time {
                 margin-left: 12px;
@@ -120,14 +173,46 @@
                 padding-left: 20px;
             }
             #event_title {
-                margin: 0.5em 0;
+                margin: 0.3em 0;
             }
         }
+
+        @media screen and (max-width: 640px) {
+            #event_info_color{
+                padding: 0 24px;
+            }
+            #event_info_color div{
+                margin-bottom: 4px;
+                display: block;
+            }            
+            #event_info_color .bullet{
+                margin-right: 14px;
+                margin-top: 4px;
+                display: inline-block;
+            }
+            #event_info_color span{
+                vertical-align: middle;
+            }
+        }        
         </style>
         <iron-ajax auto url="/data/agenda.json" handle-as="json" last-response="{{agendaData}}"></iron-ajax>
         <div id="agendaCard">
             <h1 id="agenda">{{pageContent.title}}</h1>
             <div id="container">
+                <div id="event_info_color">
+                    <div>
+                        <div class="bullet cyan"></div><span>General</span>
+                    </div>
+                    <div>
+                        <div class="bullet blue"></div><span>Talk</span>
+                    </div>
+                    <div>
+                        <div class="bullet red"></div><span>Codelabs</span>
+                    </div>
+                    <div>
+                        <div class="bullet grey"></div><span>Other</span>
+                    </div>
+                </div>
                 <template is="dom-repeat" items="[[agendaData]]">
                     <div id="event_time">
                         <iron-icon icon="device:access-time"></iron-icon>
@@ -136,7 +221,13 @@
                     <div id="event_group">
                         <template is="dom-repeat" items="[[item.data]]">
                             <paper-card animated-shadow class$="[[item.type]]">
-                                <p id="event_title">[[item.title]]</p>
+                                <template is="dom-if" if="{{item.info}}">
+                                    <iron-icon icon="hardware:laptop" class="title_icon" title="Bring Your Own Laptop"></iron-icon>
+                                    <p id="event_title">[[item.title]]</p>
+                                </template>
+                                <template is="dom-if" if="{{!item.info}}">
+                                    <p id="event_title">[[item.title]]</p>
+                                </template>
                                 <template is="dom-if" if="{{item.speaker}}">
                                     <p id="event_speaker">[[item.speaker]]</p>
                                 </template>
@@ -151,13 +242,16 @@
                                         <div id="event_desc_block">
                                             <iron-icon icon="info"></iron-icon>[[item.info]]
                                         </div>
-                                    </template>                                    
+                                    </template>
                                 </p>
                             </paper-card>
                         </template>
                     </div>
                 </template>
-                <!-- <p id="toChange">{{pageContent.tochange}}</p> -->
+                <p id="toChange">
+                    <iron-icon icon="hardware:laptop" class="title_icon" title="Bring Your Own Laptop"></iron-icon>
+                    BYOL - <i>Bring Your Own Laptop</i>
+                </p>
             </div>
             <footer-page></footer-page>
         </div>
