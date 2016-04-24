@@ -63,6 +63,15 @@
             vertical-align: middle;
             display: inline-block;
         }
+
+        #event_title_reserve{
+            margin: 4px 0;
+            color: rgba(0, 0, 0, 0.6);
+            font-size: 16px;
+            font-weight: 400;
+            vertical-align: middle;
+            display: inline-block;            
+        }
         
         .title_icon {
             color: rgba(0, 0, 0, 0.7);
@@ -228,6 +237,9 @@
                                 <template is="dom-if" if="{{!item.info}}">
                                     <p id="event_title">[[item.title]]</p>
                                 </template>
+                                <template is="dom-if" if="{{item.reserve}}">
+                                    <p id="event_title_reserve"><i>For Registered Participants Only</i></p>
+                                </template>                                
                                 <template is="dom-if" if="{{item.speaker}}">
                                     <p id="event_speaker">[[item.speaker]]</p>
                                 </template>

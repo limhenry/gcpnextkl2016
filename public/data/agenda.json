@@ -73,7 +73,8 @@
         "location": "Lab",
         "speaker": "JT Liew",
         "type": "codelabs",
-        "info": "Codelabs"
+        "info": "Codelabs",
+        "reserve": "true"
     }]
 }, {
     "time": "3:00PM",
@@ -90,7 +91,8 @@
         "location": "Lab",
         "speaker": "Kenny Lim",
         "type": "codelabs",
-        "info": "Codelabs"
+        "info": "Codelabs",
+        "reserve": "true"
     }]
 },{
     "time": "4:30PM",
