@@ -87,13 +87,12 @@
                         <paper-item id="" drawer-toggle on-tap="scrollTop">{{pagecontents.movil-menu.home}}</paper-item>
                         <paper-item id="agenda" drawer-toggle on-tap="scrollTop">{{pagecontents.movil-menu.agenda}}</paper-item>
                         <paper-item id="speaker" drawer-toggle on-tap="scrollTop">{{pagecontents.movil-menu.speakers}}</paper-item>
-                        <paper-item id="getting" drawer-toggle on-tap="scrollTop">{{pagecontents.movil-menu.getting}}</paper-item>
-                        <paper-item id="register" drawer-toggle on-tap="scrollTop">{{pagecontents.movil-menu.register}}</paper-item>
+                        <paper-item id="resources" drawer-toggle on-tap="scrollTop">{{pagecontents.movil-menu.resources}}</paper-item>
                     </iron-selector>
                 </app-drawer>
             </template>
             <template is="dom-if" if="{{wide}}">
-                <app-drawer id="drawer" swipe-open>cat</app-drawer>
+                <app-drawer id="drawer"></app-drawer>
             </template>
             <app-header-layout>
                 <app-header reveals effects="waterfall fade-background">
@@ -109,8 +108,7 @@
                             <paper-tabs attr-for-selected="id" selected="{{data.page}}">
                                 <paper-tab id="speaker" on-tap="scrollTop">{{pagecontents.menu.speakers}}</paper-tab>
                                 <paper-tab id="agenda" on-tap="scrollTop">{{pagecontents.menu.agenda}}</paper-tab>
-                                <paper-tab id="getting" on-tap="scrollTop">{{pagecontents.menu.getting}}</paper-tab>
-                                <paper-tab id="register" on-tap="scrollTop">{{pagecontents.menu.register}}</paper-tab>
+                                <paper-tab id="resources" on-tap="scrollTop">{{pagecontents.menu.resources}}</paper-tab>
                             </paper-tabs>
                         </template>
                     </app-toolbar>
@@ -122,8 +120,7 @@
                         <home-page id="" page-content="{{pagecontents.details}}"></home-page>
                         <speaker-page page-content="{{pagecontents.speaker}}" id="speaker"></speaker-page>
                         <agenda-page id="agenda" page-content="{{pagecontents.agenda}}"></agenda-page>
-                        <transport-page id="getting" page-content="{{pagecontents.getting}}"></transport-page>
-                        <register-page id="register" page-content="{{pagecontents.register}}"></register-page>
+                        <resources-page id="resources" page-content="{{pagecontents.resources}}"></resources-page>
                     </neon-animated-pages>
                 </div>
             </app-header-layout>

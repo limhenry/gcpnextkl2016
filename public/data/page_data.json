@@ -8,14 +8,16 @@
         "speakers": "SPEAKERS",
         "agenda": "AGENDA",
         "getting": "GETTING THERE",
-        "register": "REGISTER"
+        "register": "REGISTER",
+        "resources": "RESOURCES"
     },
     "movil-menu": {
         "home": "Home",
         "speakers": "Speakers",
         "agenda": "Agenda",
         "getting": "Getting there",
-        "register": "Register"
+        "register": "Register",
+        "resources": "Resources"
     },
 
     "details": {
@@ -77,5 +79,30 @@
         "organization_name": "GDG Kuala Lumpur",
         "author_name": "Henry Lim",
         "author_url": "https://limhenry.xyz"
+    },
+    "resources": {
+        "title": "Resources",
+        "resources_description": "Sharing is caring. Here are some useful resources you might like it",
+        "resources_details": [{
+            "title": "Cloud Vision API Codelabs",
+            "desc": "In this codelab, you will create a “PokeDex”-like application that allows you to take photos of any object, and the application will provide descriptive words about the photo using the Google Cloud Vision API.",
+            "link": "http://goo.gl/pqYAG4"
+        }, {
+            "title": "Android Cloud Testing Codelabs",
+            "desc": "In this codelab, you’ll learn how to get started with using Cloud Test Lab for testing your mobile apps. You’ll be able to run your tests from the web, Android studio, or using our “gcloud” command line interface. You can even integrate it to your Continuous Integration environment.",
+            "link": "https://codelabs.developers.google.com/codelabs/cloud-test-lab/index.html"
+        }, {
+            "title": "Firebase Codelabs (Chat App)",
+            "desc": "In this codelab, you’ll learn how to use the plain Javascript (without any framework and backend!) to create a Chat app using Firebase.",
+            "link": "http://goo.gl/ThHdjP"
+        }, {
+            "title": "Firebase Codelabs (TODO App)",
+            "desc": "In this codelab, you’ll learn how to use the Polymer's <firebase-element> to create a TODO app using Firebase.",
+            "link": "https://codelabs.developers.google.com/codelabs/polymer-firebase/index.html#0"
+        }, {
+            "title": "Docker Codelabs (Docker Birthday #3)",
+            "desc": "In this codelab, you’ll will go through the steps involved in running and developing a simple voting app from a fresh computer using the Docker Toolbox.",
+            "link": "https://github.com/docker/docker-birthday-3"
+        }]
     }
 }]
